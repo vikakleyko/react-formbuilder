@@ -3,6 +3,7 @@ import { v4 as uuidv4 } from "uuid";
 import { Button } from "../Button";
 import CheckboxesQuestionBlock from "./components/CheckboxesQuestionBlock";
 import ImageBlock from "./components/ImageBlock";
+import InputBlock from "./components/InputBlock";
 import RadioButtonsQuestionBlock from "./components/RadioButtonsQuestionBlock";
 import TextBlock from "./components/TextBlock";
 import styles from "./FormBuilder.module.css";
@@ -13,7 +14,8 @@ export type InputType =
   | "text"
   | "radio-buttons"
   | "checkboxes"
-  | "dropdown";
+  | "dropdown"
+  | "input";
 
 export type FormItem = {
   name: string;
@@ -69,6 +71,11 @@ const FormBuilder = ({
       name: "Checkboxar",
       type: "checkboxes",
       component: CheckboxesQuestionBlock,
+    },
+    {
+      name: "Input",
+      type: "input",
+      component: InputBlock,
     },
   ];
 
