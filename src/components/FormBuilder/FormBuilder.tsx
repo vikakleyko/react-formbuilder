@@ -1,7 +1,9 @@
+import { useState } from "react";
 import { useFieldArray, useForm } from "react-hook-form";
 import { v4 as uuidv4 } from "uuid";
 import { Button } from "../Button";
 import CheckboxesQuestionBlock from "./components/CheckboxesQuestionBlock";
+import GeneratedForm from "./components/form/GeneratedForm";
 import ImageBlock from "./components/ImageBlock";
 import InputBlock from "./components/InputBlock";
 import RadioButtonsQuestionBlock from "./components/RadioButtonsQuestionBlock";
@@ -34,7 +36,7 @@ export type FormattedField = {
   values: Record<string, string | string[]>;
 };
 
-type FormElement = Omit<FormItem, "props" | "values">;
+export type FormElement = Omit<FormItem, "props" | "values">;
 
 export type FormValues = {
   fields: FormItem[];
@@ -45,6 +47,7 @@ const FormBuilder = ({
 }: {
   onSubmit: (form: FormattedField[]) => void;
 }) => {
+  const [formGenerated, setFormGenerated] = useState<Boolean>(false);
   const { register, control, setValue, unregister } = useForm<FormValues>();
   const { fields, append, remove, update, replace } = useFieldArray({
     name: "fields",
@@ -90,54 +93,74 @@ const FormBuilder = ({
     });
   };
 
-  const saveForm = (fields: FormItem[]) => {
+  const getFormattedForm = (fields: FormItem[]) => {
     const formattedForm: FormattedField[] = fields.map((block) => ({
       type: block.type,
       id: block.props.id,
       values: block.values,
     }));
-    onSubmit(formattedForm);
+    return formattedForm;
+  };
+
+  const saveForm = (fields: FormItem[]) => {
+    onSubmit(getFormattedForm(fields));
+    setFormGenerated(true);
   };
 
   return (
     <div className={styles.wrapper}>
-      <h2>Välj element</h2>
-      <div className={styles.buttonWrapper}>
-        {elements.map((item) => (
-          <Button key={item.name} onClick={() => addItem(item)}>
-            {item.name}
-          </Button>
-        ))}
-      </div>
-      {!fields.length && <div>Lägg till nya fält med hjälp av knapparna.</div>}
-      {!!fields.length && (
+      {formGenerated ? (
+        <GeneratedForm fields={fields} />
+      ) : (
         <>
-          <ul className={styles.formItems}>
-            {fields.map((field, i) => {
-              const Component = field.component;
-              return (
-                <Component
-                  key={field.props.id}
-                  {...field.props}
-                  onRemove={() => remove(i)}
-                  onToggleExpanded={() => handleToggleExpanded(i, field)}
-                  register={register}
-                  unregister={unregister}
-                  setValue={setValue}
-                  index={i}
-                  onMove={(dir) => {
-                    const newForm = [...fields];
-                    newForm.splice(i, 1);
-                    newForm.splice(i + (dir === "down" ? 1 : -1), 0, fields[i]);
-                    replace(newForm);
-                  }}
-                />
-              );
-            })}
-          </ul>
-          <Button onClick={() => saveForm(fields)} disabled={!fields.length}>
-            Spara formulär
-          </Button>
+          <h2>Välj element</h2>
+          <div className={styles.buttonWrapper}>
+            {elements.map((item) => (
+              <Button key={item.name} onClick={() => addItem(item)}>
+                {item.name}
+              </Button>
+            ))}
+          </div>
+          {!fields.length && (
+            <div>Lägg till nya fält med hjälp av knapparna.</div>
+          )}
+          {!!fields.length && (
+            <>
+              <ul className={styles.formItems}>
+                {fields.map((field, i) => {
+                  const Component = field.component;
+                  return (
+                    <Component
+                      key={field.props.id}
+                      {...field.props}
+                      onRemove={() => remove(i)}
+                      onToggleExpanded={() => handleToggleExpanded(i, field)}
+                      register={register}
+                      unregister={unregister}
+                      setValue={setValue}
+                      index={i}
+                      onMove={(dir) => {
+                        const newForm = [...fields];
+                        newForm.splice(i, 1);
+                        newForm.splice(
+                          i + (dir === "down" ? 1 : -1),
+                          0,
+                          fields[i]
+                        );
+                        replace(newForm);
+                      }}
+                    />
+                  );
+                })}
+              </ul>
+              <Button
+                onClick={() => saveForm(fields)}
+                disabled={!fields.length}
+              >
+                Spara formulär
+              </Button>
+            </>
+          )}
         </>
       )}
     </div>

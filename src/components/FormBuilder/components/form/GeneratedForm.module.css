@@ -1,0 +1,20 @@
+.form {
+    display: flex;
+    flex-direction: column;
+    row-gap: 2rem;
+  }
+  .image {
+    width: fit-content;
+  }
+
+  /* radion and  checkbox options  */
+  .optionsContainer {
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
+  }
+  .option {
+    display: flex;
+    align-items: center;
+    column-gap: 0.5rem;
+  }

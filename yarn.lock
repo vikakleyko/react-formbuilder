@@ -215,6 +215,11 @@
   resolved "https://registry.npmjs.org/@esbuild/darwin-arm64/-/darwin-arm64-0.17.12.tgz"
   integrity sha512-O3GCZghRIx+RAN0NDPhyyhRgwa19MoKlzGonIb5hgTj78krqp9XZbYCvFr9N1eUxg0ZQEpiiZ4QvsOQwBpP+lg==
 
+"@hookform/resolvers@^3.1.1":
+  version "3.1.1"
+  resolved "https://registry.npmjs.org/@hookform/resolvers/-/resolvers-3.1.1.tgz"
+  integrity sha512-tS16bAUkqjITNSvbJuO1x7MXbn7Oe8ZziDTJdA9mMvsoYthnOOiznOTGBYwbdlYBgU+tgpI/BtTU3paRbCuSlg==
+
 "@jridgewell/gen-mapping@^0.1.0":
   version "0.1.1"
   resolved "https://registry.npmjs.org/@jridgewell/gen-mapping/-/gen-mapping-0.1.1.tgz"
@@ -707,10 +712,10 @@ react-dom@^18.2.0:
     loose-envify "^1.1.0"
     scheduler "^0.23.0"
 
-react-hook-form@^7.43.7:
-  version "7.43.7"
-  resolved "https://registry.npmjs.org/react-hook-form/-/react-hook-form-7.43.7.tgz"
-  integrity sha512-38yehQkQQ5uufaPKFScs7jhLE8n3+LG9H/BZfFAiBL2+7piDmw/BrdNJV4irzMaPnWZGhmGLHVICHXNVGIuXZg==
+react-hook-form@^7.0.0, react-hook-form@^7.44.3:
+  version "7.44.3"
+  resolved "https://registry.npmjs.org/react-hook-form/-/react-hook-form-7.44.3.tgz"
+  integrity sha512-/tHId6p2ViAka1wECMw8FEPn/oz/w226zehHrJyQ1oIzCBNMIJCaj6ZkQcv+MjDxYh9MWR7RQic7Qqwe4a5nkw==
 
 react-refresh@^0.14.0:
   version "0.14.0"
