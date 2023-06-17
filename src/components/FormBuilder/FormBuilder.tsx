@@ -9,38 +9,8 @@ import InputBlock from "./components/InputBlock";
 import RadioButtonsQuestionBlock from "./components/RadioButtonsQuestionBlock";
 import TextBlock from "./components/TextBlock";
 import styles from "./FormBuilder.module.css";
-import { FormItemBlockProps } from "./types";
-
-export type InputType =
-  | "image"
-  | "text"
-  | "radio-buttons"
-  | "checkboxes"
-  | "dropdown"
-  | "input";
-
-export type FormItem = {
-  name: string;
-  type: InputType;
-  component: (props: FormItemBlockProps) => JSX.Element;
-  props: {
-    id: string;
-    expanded: boolean;
-  };
-  values: Record<string, string>;
-};
-
-export type FormattedField = {
-  type: InputType;
-  id: string;
-  values: Record<string, string | string[]>;
-};
-
-export type FormElement = Omit<FormItem, "props" | "values">;
-
-export type FormValues = {
-  fields: FormItem[];
-};
+import { Elements } from "./lib/helpers";
+import { FormattedField, FormElement, FormItem, FormValues } from "./lib/types";
 
 const FormBuilder = ({
   onSubmit,
@@ -57,27 +27,27 @@ const FormBuilder = ({
   const elements: FormElement[] = [
     {
       name: "Bild",
-      type: "image",
+      type: Elements.IMAGE,
       component: ImageBlock,
     },
     {
       name: "Text",
-      type: "text",
+      type: Elements.TEXT,
       component: TextBlock,
     },
     {
       name: "Radio buttons",
-      type: "radio-buttons",
+      type: Elements.RADIOBUTTONS,
       component: RadioButtonsQuestionBlock,
     },
     {
       name: "Checkboxar",
-      type: "checkboxes",
+      type: Elements.CHECKBOXES,
       component: CheckboxesQuestionBlock,
     },
     {
       name: "Input",
-      type: "input",
+      type: Elements.INPUT,
       component: InputBlock,
     },
   ];

@@ -1,5 +1,5 @@
 import { useFormContext } from "react-hook-form";
-import { FormattedField } from "../../FormBuilder";
+import { FormattedField } from "../../lib/types";
 import styles from "./GeneratedForm.module.css";
 
 type CheckboxesSelectProps = {

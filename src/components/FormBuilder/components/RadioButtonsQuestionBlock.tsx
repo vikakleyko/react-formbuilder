@@ -4,7 +4,7 @@ import { ReactComponent as BinIcon } from "../../../assets/bin.svg";
 import { Button } from "../../Button";
 import { InputField } from "../../InputField";
 
-import { FormItemBlockProps } from "../types";
+import { FormItemBlockProps } from "../lib/types";
 import FormItem from "./FormItem";
 import { MultiValue, MultiValues, MultiValueWrapper } from "./MultiValueLayout";
 

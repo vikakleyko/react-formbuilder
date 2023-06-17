@@ -1,7 +1,7 @@
 import { ReactComponent as BinIcon } from "../../../assets/bin.svg";
 import { ReactComponent as PlusIcon } from "../../../assets/plus.svg";
 import { Button } from "../../Button";
-import { FormItemBlockProps } from "../types";
+import { FormItemBlockProps } from "../lib/types";
 import styles from "./FormItem.module.css";
 
 type FormItemProps = {

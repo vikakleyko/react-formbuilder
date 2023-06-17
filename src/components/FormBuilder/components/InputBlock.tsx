@@ -1,5 +1,5 @@
 import { InputField } from "../../InputField";
-import { FormItemBlockProps } from "../types";
+import { FormItemBlockProps } from "../lib/types";
 import FormItem from "./FormItem";
 
 const InputBlock = ({
