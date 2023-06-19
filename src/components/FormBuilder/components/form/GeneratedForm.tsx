@@ -6,12 +6,13 @@ import Image from "./Image";
 import RadioButtonsSelect from "./RadioButtonsSelect";
 import { Button } from "../../../Button";
 import styles from "./GeneratedForm.module.css";
-import { FormValues } from "../../lib/types";
+import { FormValues, GeneratedFormItemProps } from "../../lib/types";
 import { Elements } from "../../lib/helpers";
+import { ComponentType } from "react";
 
 const GeneratedForm = ({ fields }: FormValues) => {
   const methods = useForm<FormData>();
-  const items = {
+  const items: Record<string, ComponentType<GeneratedFormItemProps>> = {
     [Elements.TEXT]: Text,
     [Elements.INPUT]: Input,
     [Elements.IMAGE]: Image,

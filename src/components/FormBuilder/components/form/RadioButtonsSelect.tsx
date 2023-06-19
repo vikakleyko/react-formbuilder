@@ -1,18 +1,13 @@
 import { useFormContext } from "react-hook-form";
-import { FormattedField } from "../../FormBuilder";
+import { GeneratedFormItemProps } from "../../lib/types";
 import styles from "./GeneratedForm.module.css";
-
-type RadioButtonsSelectProps = {
-  item: FormattedField;
-  index: number;
-};
 
 const RadioButtonsSelect = ({
   item: {
     values: { question, informationText, alternatives },
   },
   index,
-}: RadioButtonsSelectProps) => {
+}: GeneratedFormItemProps) => {
   const { register } = useFormContext();
 
   return (

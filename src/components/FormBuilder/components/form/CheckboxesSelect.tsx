@@ -1,18 +1,13 @@
 import { useFormContext } from "react-hook-form";
-import { FormattedField } from "../../lib/types";
+import { GeneratedFormItemProps } from "../../lib/types";
 import styles from "./GeneratedForm.module.css";
-
-type CheckboxesSelectProps = {
-  item: FormattedField;
-  index: number;
-};
 
 const CheckboxesSelect = ({
   item: {
     values: { question, informationText, checkboxes },
   },
   index,
-}: CheckboxesSelectProps) => {
+}: GeneratedFormItemProps) => {
   const { register } = useFormContext();
   return (
     <div className={styles.optionsContainer}>

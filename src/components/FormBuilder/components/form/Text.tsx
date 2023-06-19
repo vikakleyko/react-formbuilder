@@ -1,12 +1,7 @@
 import { useFormContext } from "react-hook-form";
-import { FormattedField } from "../../FormBuilder";
+import { GeneratedFormItemProps } from "../../lib/types";
 
-type TextProps = {
-  item: FormattedField;
-  index: number;
-};
-
-const Text = ({ item, index }: TextProps) => {
+const Text = ({ item, index }: GeneratedFormItemProps) => {
   const { register } = useFormContext();
 
   return (

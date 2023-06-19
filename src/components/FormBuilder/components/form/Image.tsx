@@ -1,13 +1,8 @@
 import { useEffect, useState } from "react";
-import { FormattedField } from "../../FormBuilder";
+import { GeneratedFormItemProps } from "../../lib/types";
 import styles from "./GeneratedForm.module.css";
 
-type ImageProps = {
-  item: FormattedField;
-  index: number;
-};
-
-const Image = ({ item: { values: file } }: ImageProps) => {
+const Image = ({ item: { values: file } }: GeneratedFormItemProps) => {
   const [preview, setPreview] = useState<string>();
 
   useEffect(() => {

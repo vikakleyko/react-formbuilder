@@ -46,3 +46,8 @@ export type FormElement = Omit<FormItem, "props" | "values">;
 export type FormValues = {
   fields: FormItem[];
 };
+
+export type GeneratedFormItemProps = {
+  item: Omit<FormattedField, "id">;
+  index: number;
+};
