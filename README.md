@@ -1,21 +1,21 @@
-# Formulärsbyggare
+# Form builder
 
-## Om projektet
+## About the project
 
-Detta projekt är en påbörjad formulärsbyggare för att kunna bygga ett dynamiskt formulär. Målsättningen är att kunna rendera detta formulär så att en användare sen kan använda det till att skicka in data.
+This project is a starter form builder to be able to build a dynamic form. The goal is to be able to render this form so that a user can then use it to submit data.
 
-I dagsläget består formulärsbyggaren av följande fält
+Currently, the form builder consists of the following fields
 
-- Bild (Enbart uppvisning av bild, en användare ska inte kunna lägga in egna värden)
-- Text (Enbart uppvisning av text, en användare ska inte kunna lägga in egna värden)
-- Radioknappar (För input från användare)
-- Checkboxar (För input från användare)
+- Image (Display of image only, a user should not be able to enter their own values)
+- Text (Display of text only, a user should not be able to enter their own values)
+- Radio buttons (For user input)
+- Checkboxes (For user input)
 
-När man trycker på knappen "Spara formulär" visas formuläret som en array i en `console.log()`.
+When pressing the "Save Form" button, the form is displayed as an array in a `console.log()`.
 
-## Uppgift:
+## Task:
 
-- Läs igenom koden och se om du hittar några saker du tycker är bra eller saker som hade kunnat förbättras. Notera och ha med till nästkommande möte.
-- Skapa en ny fälttyp till formulärsbyggaren för ett input-fält av typen text. För att sedan kunna rendera detta fält i ett formulär behövs en label och en placeholder. Denna data behöver vara en del av arrayen som skrivs ut i konsollen när man tycker på "Spara formulär".
-- Rendera formuläret från formulärsbyggaren. Om du till exempel lagt till en bild och radioknappar ska dessa fält renderas ut så att en användare kan se och fylla i egna värden.
-- Bygg funktionalitet för att skicka in det dynamiskt renderade formuläret med värdena en användare skrivit in. Det räcker med en `console.log(formValues)`.
+- Read through the code and see if you find any things you think are good or things that could have been improved. Note and bring to the next meeting.
+- Create a new field type for the form builder for an input field of type text. To then be able to render this field in a form, a label and a placeholder are needed. This data needs to be part of the array that is printed to the console when you click "Save Form".
+- Render the form from the form builder. For example, if you added an image and radio buttons, these fields should be rendered so that a user can see and fill in their own values.
+- Build functionality to submit the dynamically rendered form with the values entered by a user. A `console.log(formValues)` is sufficient.
